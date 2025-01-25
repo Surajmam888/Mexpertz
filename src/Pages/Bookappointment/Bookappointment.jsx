@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Box, Grid, TextField, Button, Typography, MenuItem } from '@mui/material';
+import { BASE_URl } from "../../api";
 
 const BookAppointment = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ const BookAppointment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/appointment/book', formData);
+      const response = await axios.post(`${BASE_URl}api/appointments`, formData);
       alert('Appointment booked successfully!');
       console.log('Response:', response.data);
     } catch (error) {

@@ -23,9 +23,14 @@ const Navbar = () => {
           Book Appointment
         </Button>
       </Link>
-      <Link to="/cancelappointment" style={{ textDecoration: 'none', color: '#000' }}>
+      {/* <Link to="/cancelappointment" style={{ textDecoration: 'none', color: '#000' }}>
         <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
           Cancel Appointment
+        </Button>
+      </Link> */}
+      <Link to="/login" style={{ textDecoration: 'none', color: '#000' }}>
+        <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
+          Login
         </Button>
       </Link>
     </Box>
@@ -64,8 +69,11 @@ const Navbar = () => {
               <ListItem button component={Link} to="/bookappointment">
                 <ListItemText primary="Book Appointment" />
               </ListItem>
-              <ListItem button component={Link} to="/cancelappointment">
+              {/* <ListItem button component={Link} to="/cancelappointment">
                 <ListItemText primary="Cancel Appointment" />
+              </ListItem> */}
+              <ListItem button component={Link} to="/login">
+                <ListItemText primary="login" />
               </ListItem>
             </List>
           </Box>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Box, Grid, TextField, Button, Typography, MenuItem } from '@mui/material';
+import { BASE_URl } from "../api";
 
 const UserForm = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const UserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/user/save', formData);
+      const response = await axios.post(`${BASE_URl}user/save`, formData);
       alert(`${formData.userType} registered successfully!`);
       console.log('Response:', response.data);
     } catch (error) {
