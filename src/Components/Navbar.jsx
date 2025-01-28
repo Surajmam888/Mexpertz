@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  useMediaQuery,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import InfoIcon from '@mui/icons-material/Info';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import LoginIcon from '@mui/icons-material/Login';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width:600px)');  
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   const toggleDrawer = (open) => {
     setDrawerOpen(open);
@@ -13,22 +31,27 @@ const Navbar = () => {
 
   const menuItems = (
     <Box>
-      <Link to="/register" style={{ textDecoration: 'none', color: '#000' }}>
+      <Link to="/register" style={{ textDecoration: 'none', color: '#fff' }}>
         <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
           Register Patient/Doctor
         </Button>
       </Link>
-      <Link to="/bookappointment" style={{ textDecoration: 'none', color: '#000' }}>
+      <Link to="/bookappointment" style={{ textDecoration: 'none', color: '#fff' }}>
         <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
           Book Appointment
         </Button>
       </Link>
-      {/* <Link to="/cancelappointment" style={{ textDecoration: 'none', color: '#000' }}>
+      <Link to="/about" style={{ textDecoration: 'none', color: '#fff' }}>
         <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
-          Cancel Appointment
+          About
         </Button>
-      </Link> */}
-      <Link to="/login" style={{ textDecoration: 'none', color: '#000' }}>
+      </Link>
+      <Link to="/contact" style={{ textDecoration: 'none', color: '#fff' }}>
+        <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
+          Contact
+        </Button>
+      </Link>
+      <Link to="/login" style={{ textDecoration: 'none', color: '#fff' }}>
         <Button color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }}>
           Login
         </Button>
@@ -37,10 +60,18 @@ const Navbar = () => {
   );
 
   return (
-    <AppBar position="static" sx={{ bgcolor: 'primary.main' }}>
+    <AppBar position="static" sx={{ bgcolor: '#912620' }}>
       <Toolbar>
         <Link to="/" style={{ textDecoration: 'none', color: '#fff' }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold', cursor: 'pointer',mr:1, }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              fontWeight: 'bold',
+              cursor: 'pointer',
+            }}
+          >
             Hospital Appointment System
           </Typography>
         </Link>
@@ -50,30 +81,71 @@ const Navbar = () => {
             edge="start"
             color="inherit"
             onClick={() => toggleDrawer(true)}
-            sx={{ display: { xs: 'block', md: 'none',ml:"-1px" } }}
+            sx={{ display: { xs: 'block', md: 'none' }, ml: '-1px' }}
           >
             <MenuIcon />
           </IconButton>
         ) : (
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'flex-end',
+              width: { md: '75%' },
+            }}
+          >
             {menuItems}
           </Box>
         )}
 
-        <Drawer anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
-          <Box sx={{ width: 250 }} role="presentation" onClick={() => toggleDrawer(false)} onKeyDown={() => toggleDrawer(false)}>
+        <Drawer
+          anchor="right"
+          open={drawerOpen}
+          onClose={() => toggleDrawer(false)}
+          PaperProps={{
+            sx: {
+              bgcolor: '#912620',
+              color: '#fff',
+            },
+          }}
+        >
+          <Box
+            sx={{
+              width: 250,
+            }}
+            role="presentation"
+            onClick={() => toggleDrawer(false)}
+            onKeyDown={() => toggleDrawer(false)}
+          >
             <List>
               <ListItem button component={Link} to="/register">
-                <ListItemText primary="Register Patient/Doctor" />
+                <ListItemIcon sx={{ color: '#fff' }}>
+                  <PersonAddIcon />
+                </ListItemIcon>
+                <ListItemText primary="Register Patient/Doctor" sx={{ textAlign: 'left', color: '#fff' }} />
               </ListItem>
               <ListItem button component={Link} to="/bookappointment">
-                <ListItemText primary="Book Appointment" />
+                <ListItemIcon sx={{ color: '#fff' }}>
+                  <EventAvailableIcon />
+                </ListItemIcon>
+                <ListItemText primary="Book Appointment" sx={{ textAlign: 'left', color: '#fff' }} />
               </ListItem>
-              {/* <ListItem button component={Link} to="/cancelappointment">
-                <ListItemText primary="Cancel Appointment" />
-              </ListItem> */}
+              <ListItem button component={Link} to="/about">
+                <ListItemIcon sx={{ color: '#fff' }}>
+                  <InfoIcon />
+                </ListItemIcon>
+                <ListItemText primary="About" sx={{ textAlign: 'left', color: '#fff' }} />
+              </ListItem>
+              <ListItem button component={Link} to="/contact">
+                <ListItemIcon sx={{ color: '#fff' }}>
+                  <ContactMailIcon />
+                </ListItemIcon>
+                <ListItemText primary="Contact" sx={{ textAlign: 'left', color: '#fff' }} />
+              </ListItem>
               <ListItem button component={Link} to="/login">
-                <ListItemText primary="login" />
+                <ListItemIcon sx={{ color: '#fff' }}>
+                  <LoginIcon />
+                </ListItemIcon>
+                <ListItemText primary="Login" sx={{ textAlign: 'left', color: '#fff' }} />
               </ListItem>
             </List>
           </Box>

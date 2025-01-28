@@ -1,44 +1,49 @@
 import React from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import banner from '../assets/image/gettyimagesnew.png';
+import './HomePage.css'
+import { Box, Typography, Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
+import banner from '../assets/image/gettyimagesnew.png';
 
-const Banner = () => {
+const HomePage = () => {
   return (
     <Box
       sx={{
         position: "relative",
-        width: "100%",
-        height: "400px",
+        width: "auto",
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        minHeight: "100vh",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        color: "#fff",
-        textAlign: "center",
+        padding: 3,
+        bgcolor: "background.default",
       }}
     >
-      <Box
+      <Box className="bg-new"></Box>
+      <Typography
+        variant="h3"
+        component="h1"
         sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          bgcolor: "rgba(0, 0, 0, 0.5)",
-          zIndex: 1,
+          textAlign: "center",
+          marginBottom: { xs: "50px !important", lg:"250px !important" }, 
+          fontSize: { xs: "2rem", md: "3rem",lg:"3rem" }, 
+          color: "#a12f2a",
         }}
-      />
-      <Box sx={{ position: "relative", zIndex: 2,textAlign:"left" }}>
-        <Typography variant="h3" gutterBottom>
-          Welcome to Our Hospital
-        </Typography>
-        <Typography variant="h6">
-          Your health is our top priority. Book your appointment today!
-        </Typography>
-      </Box>
+      >
+        Welcome to the Retina Hospital
+      </Typography>
+      {/* <Typography
+        variant="h6"
+        sx={{ textAlign: "center", marginBottom: 4, maxWidth: "600px",color:"#fff",backgroundColor:"" }}
+      >
+        Simplify your healthcare experience with our system. Book, manage, or
+        cancel appointments with ease, and ensure you never miss your next
+        visit.
+      </Typography> */}
+
       <Grid container spacing={2} justifyContent="center">
         <Grid item>
           <Button
@@ -69,4 +74,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default HomePage;

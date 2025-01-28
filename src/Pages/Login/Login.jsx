@@ -61,7 +61,7 @@ function Login({ onLogin }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
+        minHeight: {xs:"",md:"",lg:"100vh"},
       }}
     >
       <ToastContainer />
@@ -73,6 +73,7 @@ function Login({ onLogin }) {
           borderRadius: 2,
           textAlign: "center",
           bgcolor: "background.paper",
+          mt:{xs:"50px",md:"50px",lg:"0px"}
         }}
       >
         <Typography variant="h4" gutterBottom>
