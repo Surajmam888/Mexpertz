@@ -7,6 +7,8 @@ import Banner from "../Components/Banner";
 import HomePage from "../Components/HomePage";
 import CardSection from "../Components/CardSection";
 import Footer from "../Components/Footer";
+import ProductGrid from "../Components/ProductGrid";
+import Layout from "../Components/Layout";
 
 const Home = () => {
   return (
@@ -24,6 +26,8 @@ const Home = () => {
       {/* <Banner/> */}
       <HomePage />
       <CardSection />
+      <ProductGrid />
+      {/* <Layout /> */}
       <Footer />
     </Box>
   );

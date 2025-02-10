@@ -51,7 +51,7 @@ const CardSection = () => {
             <Card sx={{ boxShadow: 3 }}>
               <CardMedia
                 component="img"
-                height="200"
+                height="300px"
                 image={card.image}
                 alt={card.title}
               />

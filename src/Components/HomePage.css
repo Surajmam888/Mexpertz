@@ -22,7 +22,7 @@
 
 
 
- @media screen and (min-width: 600px) {
+ /* @media screen and (min-width: 600px) {
     .css-19em6m4-MuiTypography-root {
         margin: 0;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -32,7 +32,8 @@
         letter-spacing: 0em;
         color: #a12f2a;
         text-align: center;
-        margin-bottom: 150px !important;
-        font-size: 2rem !important;
+        font-size: 2rem;
+        margin-bottom: 200px !important;
+        margin-top: -380px !important;
     }
-  }
+  } */

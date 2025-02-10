@@ -32,6 +32,7 @@ const BookAppointment = () => {
   };
 
   return (
+    <Box sx={{minHeight: {xs:"",md:"",lg:"87vh"},}}>
     <Box
       sx={{
         maxWidth: 600,
@@ -148,13 +149,14 @@ const BookAppointment = () => {
               type="submit"
               variant="contained"
               fullWidth
-              sx={{ py: 1.5 }}
+              sx={{ py: 1.5,backgroundColor:"#912620" }}
             >
               Book Appointment
             </Button>
           </Grid>
         </Grid>
       </form>
+    </Box>
     </Box>
   );
 };

@@ -26,6 +26,22 @@ const Dashboard = () => {
     email: '',
     reason: '',
   });
+  const [userName, setUserName] = useState("User");
+
+
+  useEffect(() => {
+    // Fetch user data (replace with actual API call)
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/user/${userId}`);
+        setUserName(response.data.name);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+  
+    fetchUser();
+  }, []);
 
   // Fetch Appointments Data
   useEffect(() => {
@@ -85,7 +101,7 @@ const Dashboard = () => {
   return (
     <Box sx={{ padding: 2 }}>
       <Typography variant="h4" align="center" gutterBottom>
-      Welcome to your Dashboard!
+      {`Welcome, ${userName || "User"}! - Dashboard`}
       </Typography>
       <TableContainer component={Paper} sx={{ maxHeight: 500 }}>
         <Table stickyHeader>

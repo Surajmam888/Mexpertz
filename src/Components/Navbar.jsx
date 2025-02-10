@@ -20,6 +20,7 @@ import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import LoginIcon from '@mui/icons-material/Login';
+// import { useTheme } from '../ThemeContext';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -28,6 +29,16 @@ const Navbar = () => {
   const toggleDrawer = (open) => {
     setDrawerOpen(open);
   };
+
+//   const ThemeToggleButton = () => {
+//   const { darkMode, toggleTheme } = useTheme();
+
+//   return (
+//     <Button variant="contained" onClick={toggleTheme}>
+//       Switch {darkMode ? "Light" : "Dark"}
+//     </Button>
+//   );
+// };
 
   const menuItems = (
     <Box>
@@ -56,6 +67,9 @@ const Navbar = () => {
           Login
         </Button>
       </Link>
+      {/* <Link to="/*" style={{ textDecoration: 'none', color: '#fff' }}>
+        <ThemeToggleButton color="inherit" sx={{ fontWeight: 'bold', textTransform: 'none', mx: 1 }} />
+      </Link> */}
     </Box>
   );
 
@@ -70,6 +84,12 @@ const Navbar = () => {
               flexGrow: 1,
               fontWeight: 'bold',
               cursor: 'pointer',
+              textAlign: { xs: 'center', sm: 'left' }, 
+              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.2rem' }, 
+              mr: { xs: 2, sm: 5, md: 10 }, 
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
             }}
           >
             Hospital Appointment System
@@ -78,13 +98,17 @@ const Navbar = () => {
 
         {isMobile ? (
           <IconButton
-            edge="start"
-            color="inherit"
-            onClick={() => toggleDrawer(true)}
-            sx={{ display: { xs: 'block', md: 'none' }, ml: '-1px' }}
-          >
-            <MenuIcon />
-          </IconButton>
+          edge="end" 
+          color="inherit"
+          onClick={() => toggleDrawer(true)}
+          sx={{
+            display: { xs: 'block', md: 'none' }, 
+            position: 'absolute', 
+            right: '30px', 
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
         ) : (
           <Box
             sx={{

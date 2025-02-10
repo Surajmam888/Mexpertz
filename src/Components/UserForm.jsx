@@ -158,7 +158,7 @@ const UserForm = () => {
               type="submit"
               variant="contained"
               fullWidth
-              sx={{ py: 1.5 }}
+              sx={{ py: 1.5 ,backgroundColor:"#912620"}}
             >
               Register
             </Button>
